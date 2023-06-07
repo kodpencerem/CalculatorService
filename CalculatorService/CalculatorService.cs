@@ -7,7 +7,7 @@ namespace CalculatorService
     {
         public int Divide(int Numerator, int Denominator)
         {
-            throw new NotImplementedException();
+            return Numerator/Denominator;
         }
     }
 }

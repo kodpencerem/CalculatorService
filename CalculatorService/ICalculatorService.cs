@@ -7,6 +7,6 @@ namespace CalculatorService
     public interface ICalculatorService
     {
         [OperationContract]
-        int Divide(int Numerator, int Denominator);
+        float Divide(float Numerator, float Denominator);
     }
 }

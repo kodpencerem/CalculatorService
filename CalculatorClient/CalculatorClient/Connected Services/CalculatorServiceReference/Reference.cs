@@ -16,10 +16,10 @@ namespace CalculatorClient.CalculatorServiceReference {
     public interface ICalculatorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculatorService/Divide", ReplyAction="http://tempuri.org/ICalculatorService/DivideResponse")]
-        int Divide(int Numerator, int Denominator);
+        float Divide(float Numerator, float Denominator);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculatorService/Divide", ReplyAction="http://tempuri.org/ICalculatorService/DivideResponse")]
-        System.Threading.Tasks.Task<int> DivideAsync(int Numerator, int Denominator);
+        System.Threading.Tasks.Task<float> DivideAsync(float Numerator, float Denominator);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,11 +49,11 @@ namespace CalculatorClient.CalculatorServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public int Divide(int Numerator, int Denominator) {
+        public float Divide(float Numerator, float Denominator) {
             return base.Channel.Divide(Numerator, Denominator);
         }
         
-        public System.Threading.Tasks.Task<int> DivideAsync(int Numerator, int Denominator) {
+        public System.Threading.Tasks.Task<float> DivideAsync(float Numerator, float Denominator) {
             return base.Channel.DivideAsync(Numerator, Denominator);
         }
     }

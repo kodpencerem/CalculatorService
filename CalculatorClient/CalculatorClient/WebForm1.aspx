@@ -8,8 +8,37 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <b>
+                        Numerator: 
+                    </b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtNumerator" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Denominator: 
+                    </b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtDenominator" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btnDivide" runat="server" Text="Divide" OnClick="btnDivide_Click" />
+                </td>
+                <td>
+                    <asp:Label ID="lblResult" runat="server" Text="0.0"></asp:Label>
+                </td>
+            </tr>
+
+        </table>
     </form>
 </body>
 </html>

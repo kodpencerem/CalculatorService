@@ -13,5 +13,15 @@ namespace CalculatorClient
         {
 
         }
+
+        protected void btnDivide_Click(object sender, EventArgs e)
+        {
+            float numerator = ((float)Convert.ToDouble(txtNumerator.Text));
+            float denominator = ((float)Convert.ToDouble(txtDenominator.Text));
+
+            CalculatorServiceReference.CalculatorServiceClient client = new CalculatorServiceReference.CalculatorServiceClient();
+
+            lblResult.Text = client.Divide(numerator, denominator).ToString();
+        }
     }
 }

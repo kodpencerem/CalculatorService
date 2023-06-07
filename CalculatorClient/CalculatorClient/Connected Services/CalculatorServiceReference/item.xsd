@@ -3,15 +3,15 @@
   <xs:element name="Divide">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Numerator" type="xs:int" />
-        <xs:element minOccurs="0" name="Denominator" type="xs:int" />
+        <xs:element minOccurs="0" name="Numerator" type="xs:float" />
+        <xs:element minOccurs="0" name="Denominator" type="xs:float" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DivideResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DivideResult" type="xs:int" />
+        <xs:element minOccurs="0" name="DivideResult" type="xs:float" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

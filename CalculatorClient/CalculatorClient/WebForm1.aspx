@@ -11,8 +11,7 @@
         <table>
             <tr>
                 <td>
-                    <b>
-                        Numerator: 
+                    <b>Numerator: 
                     </b>
                 </td>
                 <td>
@@ -21,8 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <b>
-                        Denominator: 
+                    <b>Denominator: 
                     </b>
                 </td>
                 <td>
@@ -38,7 +36,6 @@
                     <asp:Label ID="lblResult" runat="server" Text="0.0"></asp:Label>
                 </td>
             </tr>
-
         </table>
     </form>
 </body>

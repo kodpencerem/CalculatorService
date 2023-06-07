@@ -34,6 +34,7 @@
                     <asp:Button ID="btnDivide" runat="server" Text="Divide" OnClick="btnDivide_Click" />
                 </td>
                 <td>
+                    <b>Result: </b>
                     <asp:Label ID="lblResult" runat="server" Text="0.0"></asp:Label>
                 </td>
             </tr>

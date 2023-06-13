@@ -6,6 +6,7 @@ namespace CalculatorService
     [ServiceContract]
     public interface ICalculatorService
     {
+        [FaultContract(typeof(DivideByZeroFault))]
         [OperationContract]
         float Divide(float Numerator, float Denominator);
     }

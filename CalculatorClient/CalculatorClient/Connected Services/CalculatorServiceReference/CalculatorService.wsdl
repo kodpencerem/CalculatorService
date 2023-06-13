@@ -134,9 +134,29 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_ICalculatorService_Divide_DivideByZeroFaultFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
       <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
@@ -146,10 +166,14 @@
   <wsdl:message name="ICalculatorService_Divide_OutputMessage">
     <wsdl:part name="parameters" element="tns:DivideResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalculatorService_Divide_DivideByZeroFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/" name="detail" element="q1:DivideByZeroFault" />
+  </wsdl:message>
   <wsdl:portType name="ICalculatorService">
     <wsdl:operation name="Divide">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Divide" message="tns:ICalculatorService_Divide_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/DivideResponse" message="tns:ICalculatorService_Divide_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICalculatorService/DivideDivideByZeroFaultFault" name="DivideByZeroFaultFault" message="tns:ICalculatorService_Divide_DivideByZeroFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_ICalculatorService" type="tns:ICalculatorService">
@@ -165,6 +189,10 @@
         <wsp:PolicyReference URI="#WSHttpBinding_ICalculatorService_Divide_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="DivideByZeroFaultFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_ICalculatorService_Divide_DivideByZeroFaultFault_Fault" />
+        <soap12:fault use="literal" name="DivideByZeroFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CalculatorService">

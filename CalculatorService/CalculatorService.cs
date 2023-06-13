@@ -10,11 +10,18 @@ namespace CalculatorService
     {
         public float Divide(float Numerator, float Denominator)
         {
-            if (Denominator == 0)
+            try
             {
-                throw new FaultException("Denominator Can't Be Zero", new FaultCode("DivideByZeroFault"));
+                return Numerator / Denominator;
             }
-            return Numerator / Denominator;
+            catch (DivideByZeroException ex)
+            {
+                DivideByZeroFault fault = new DivideByZeroFault();
+                fault.Error = ex.Message;
+                fault.Details = "Denominator Can't Be Zero";
+
+                throw new FaultException<DivideByZeroFault>(fault);
+            }          
         }
     }
 }

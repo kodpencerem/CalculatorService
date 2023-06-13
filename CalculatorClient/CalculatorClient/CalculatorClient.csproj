@@ -86,6 +86,9 @@
     <None Include="Connected Services\CalculatorServiceReference\item.disco" />
     <None Include="Connected Services\CalculatorServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\CalculatorServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CalculatorServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

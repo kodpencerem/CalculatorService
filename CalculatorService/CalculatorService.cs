@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 
 namespace CalculatorService
 {
@@ -9,7 +10,11 @@ namespace CalculatorService
     {
         public float Divide(float Numerator, float Denominator)
         {
-            return Numerator/Denominator;
+            if (Denominator == 0)
+            {
+                throw new FaultException("Denominator Can't Be Zero", new FaultCode("DivideByZeroFault"));
+            }
+            return Numerator / Denominator;
         }
     }
 }
